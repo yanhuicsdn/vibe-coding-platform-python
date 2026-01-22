@@ -48,12 +48,13 @@ services:
       - "8000:8000"
     environment:
       - PYTHONUNBUFFERED=1
-      - ENVIRONMENT=production
+      - ENVIRONMENT=development
       - HASURA_GRAPHQL_URL=http://hasura:8080
       - HASURA_ADMIN_SECRET=your_admin_secret_change_me_make_it_longer_and_secure
       - JWT_SECRET=your_jwt_secret_change_me_make_it_at_least_32_characters
       - DATABASE_URL=postgresql+asyncpg://vibe_admin:vibe_admin_password_change_me@postgres:5432/vibe_platform
       - REDIS_URL=redis://redis:6379
+      - CORS_ORIGINS=["http://localhost:3000","http://localhost:8000","http://localhost:5173"]
     depends_on:
       - hasura
       - redis
